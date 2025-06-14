@@ -12,6 +12,14 @@ Contoh sederhana admin page untuk input data pembelian dan cancel pembelian oleh
 npm install / npm update
 ```
 
+## Setup SQL
+
+- Gunakan MysQL
+- Masuk ke localhost
+- Tuliskan nama database "jaya_store"
+- Masuk ke dalam database
+- Pilih import, pilih file 'jaya_store.sql', lalu klik 'import' 
+
 ## Development Server
 
 Start the development server on `http://localhost:5000`:
