@@ -1,0 +1,34 @@
+<div class="container py-5">
+  <h1 class="mb-4">📦 Data Produk & Pembelian</h1>
+
+    <table class="table table-bordered table-hover bg-white shadow-sm">
+      <thead class="table-dark">
+        <tr>
+          <th>Nama Produk</th>
+          <th>Kategori</th>
+          <th>Harga</th>
+          <th>Stok</th>
+          <th>Beli</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(p => { %>
+          <tr>
+            <td><%= p.name_product %></td>
+            <td><%= p.category %></td>
+            <td><%= new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(p.price) %></td>          
+            <td><%= p.stock %></td>
+            <td>
+              <form action="/beli" method="POST" class="d-flex align-items-center">
+                <input type="hidden" name="id_product" value="<%= p.id_product %>">
+                <input type="number" name="purchase_amount" class="form-control me-2" style="width: 100px;" min="1" max="<%= p.stock %>" required>
+                <button type="submit" class="btn btn-success btn-sm">Beli</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+  <a href="/pembelian" class="btn btn-primary mt-3">Lihat Riwayat Pembelian</a>
+</div>

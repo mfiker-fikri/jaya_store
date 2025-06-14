@@ -1,0 +1,33 @@
+<div class="container py-5">
+  <h1 class="mb-4">🧾 Riwayat Pembelian</h1>
+
+  <table class="table table-bordered table-hover bg-white shadow-sm">
+    <thead class="table-dark">
+      <tr>
+        <th>Nama Produk</th>
+        <th>Jumlah</th>
+        <th>Total Harga</th>
+        <th>Tanggal</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% purchases.forEach(p => { %>
+        <tr>
+          <td><%= p.name_product %></td>
+          <td><%= p.purchase_amount %></td>
+          <td><%= new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(p.price_total) %></td>
+          <td><%= new Date(p.purchase_date).toLocaleString('id-ID') %></td>
+          <td>
+            <form action="/cancel/<%= p.id_purchase %>" method="POST" onsubmit="return confirm('Yakin ingin cancel pembelian ini?')">
+              <input type="hidden" name="id_purchase" value="<%= p.id_purchase %>">
+              <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <a href="/" class="btn btn-secondary mt-3">⬅ Kembali ke Dashboard</a>
+</div>
