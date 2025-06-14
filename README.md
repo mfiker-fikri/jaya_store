@@ -2,9 +2,24 @@
 
 Contoh sederhana admin page untuk input data pembelian dan cancel pembelian oleh admin toko.
 
-## Langkah-langkah
+## Setup
 
 - Ikuti langkah di github.
+- install the dependencies:
+
+```bash
+# npm
+npm install / npm update
+```
+
+## Development Server
+
+Start the development server on `http://localhost:5000`:
+
+```bash
+# npm
+node app.js
+```
 
 ### Picture
 
